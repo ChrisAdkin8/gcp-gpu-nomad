@@ -121,7 +121,7 @@ variable "nomad_client_disk_size" {
 
 variable "nomad_client_machine_type" {
   description = "Machine type for nodes"
-  default     = "n1-standard-4"
+  default     = "c2-standard-30"
 }
 
 variable "nomad_client_preemptible" {
