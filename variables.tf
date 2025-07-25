@@ -2,15 +2,7 @@ variable "gcp_region" {
   description = "Google Cloud region"
   default     = "europe-west1"
 }
-# variable "gcp_zone" {
-#   description = "Google Cloud region"
-#   validation {
-#     # Validating that zone is within the region
-#     condition     = var.gcp_zone == regex("[a-z]+-[a-z]+[0-1]-[abc]",var.gcp_zone)
-#     error_message = "The GCP zone ${var.gcp_zone} needs to be a valid one."
-#   }
 
-# }
 variable "gcp_zones" {
   description = "Zones to spread the clients. This is a list of zones"
   type        = list(string)
@@ -21,40 +13,46 @@ variable "gcp_zones" {
     error_message = "The GCP zones ${join(",", var.gcp_zones)} needs to be a valid one."
   }
 }
+
 variable "gcp_project" {
   description = "Cloud project"
 }
 variable "gcp_instance" {
   description = "Machine type for nodes"
+  default     = "n1-standard-4"
 }
-# variable "gcp_zones" {
-#   description = "availability zones"
-#   type = list(string)
-# }
+
 variable "server_nodes" {
   description = "number of server nodes"
   default     = 3
 }
+
 variable "nomad_clients" {
   description = "number of client nodes"
   default     = 2
 }
+
 variable "cluster_name" {
   description = "Name of the cluster"
 }
+
 variable "owner" {
   description = "Owner of the cluster"
 }
+
 variable "server" {
   description = "Prefix for server names"
   default     = "consul-server"
 }
+
 variable "consul_license" {
   description = "Consul Enterprise license text"
 }
+
 variable "nomad_license" {
   description = "Nomad Enterprise license text"
 }
+
 variable "tfc_token" {
   description = "Terraform Cloud token to use for CTS"
   default     = ""
@@ -99,6 +97,7 @@ variable "hcp_packer_region" {
   description = "Region for HCP Packer"
   default     = "europe-west1-c"
 }
+
 variable "hcp_project_id" {
   description = "HCP Project ID"
 }
